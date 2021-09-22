@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OCAnalytics" GeneratedClassName="Settings1">
+  <Profiles />
+  <Settings>
+    <Setting Name="IniPeriod" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2021-09-21</Value>
+    </Setting>
+    <Setting Name="FinPeriod" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2021-12-31</Value>
+    </Setting>
+    <Setting Name="HorasLaborales" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">6.40</Value>
+    </Setting>
+    <Setting Name="HorasPlanificables" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="CategoriaFestivos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Festivo</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
