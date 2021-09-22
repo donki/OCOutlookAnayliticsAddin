@@ -174,23 +174,29 @@ namespace OCAnalytics
 
                     psm.TotalRemainHours = psm.TotalWorkHours - psm.TotalHoursPlanned;
                     psm.TotalRemainHoursToday = psm.TotalWorkHoursToday - psm.TotalHoursPlannedToday;
-                    var row = dgvResumen.Rows.Add(new object[] { psm.MonthName, psm.TotalWorkHours.ToString(format), psm.TotalHoursPlanned.ToString(format), psm.TotalRemainHours.ToString(format), psm.TotalWorkHoursToday.ToString(format), psm.TotalHoursPlannedToday.ToString(format), psm.TotalRemainHoursToday.ToString(format) });
+                    var row = dgvResumen.Rows.Add(new object[] { psm.MonthName,
+                        psm.TotalWorkHours.ToString(format), 
+                        psm.TotalHoursPlanned.ToString(format), 
+                        psm.TotalRemainHours.ToString(format), 
+                        psm.TotalWorkHoursToday.ToString(format), 
+                        psm.TotalHoursPlannedToday.ToString(format), 
+                        psm.TotalRemainHoursToday.ToString(format) });
 
                     dgvResumen.Rows[row].Cells[3].Style.ForeColor = Color.White;
                     dgvResumen.Rows[row].Cells[6].Style.ForeColor = Color.White;
 
                     if (psm.TotalRemainHours<0)
                     {
-                        dgvResumen.Rows[row].Cells[3].Style.BackColor = Color.Red;
+                        dgvResumen.Rows[row].Cells[3].Style.BackColor = Color.OrangeRed;
 
                     } else
                     {
-                        dgvResumen.Rows[row].Cells[3].Style.BackColor = Color.ForestGreen;
+                        dgvResumen.Rows[row].Cells[3].Style.BackColor = Color.Green;
                     }
 
                     if (psm.TotalRemainHoursToday < 0)
                     {
-                        dgvResumen.Rows[row].Cells[6].Style.BackColor = Color.Red;
+                        dgvResumen.Rows[row].Cells[6].Style.BackColor = Color.OrangeRed;
 
                     }
                     else

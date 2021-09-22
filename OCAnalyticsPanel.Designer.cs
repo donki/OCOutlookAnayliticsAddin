@@ -30,14 +30,14 @@ namespace OCAnalytics
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAnalisi = new System.Windows.Forms.TabControl();
             this.tpAnalisis = new System.Windows.Forms.TabPage();
             this.dgvResumen = new System.Windows.Forms.DataGridView();
@@ -93,9 +93,9 @@ namespace OCAnalytics
             this.tpAnalisis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpAnalisis.Name = "tpAnalisis";
             this.tpAnalisis.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tpAnalisis.Size = new System.Drawing.Size(1013, 416);
+            this.tpAnalisis.Size = new System.Drawing.Size(1085, 416);
             this.tpAnalisis.TabIndex = 0;
-            this.tpAnalisis.Text = "Analisis";
+            this.tpAnalisis.Text = "Análisis";
             this.tpAnalisis.UseVisualStyleBackColor = true;
             // 
             // dgvResumen
@@ -103,14 +103,14 @@ namespace OCAnalytics
             this.dgvResumen.AllowUserToAddRows = false;
             this.dgvResumen.AllowUserToDeleteRows = false;
             this.dgvResumen.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvResumen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvResumen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvResumen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResumen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Periodo,
@@ -126,7 +126,7 @@ namespace OCAnalytics
             this.dgvResumen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvResumen.Name = "dgvResumen";
             this.dgvResumen.ReadOnly = true;
-            this.dgvResumen.Size = new System.Drawing.Size(1005, 406);
+            this.dgvResumen.Size = new System.Drawing.Size(1077, 406);
             this.dgvResumen.TabIndex = 4;
             this.dgvResumen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResumen_CellContentClick);
             // 
@@ -288,9 +288,9 @@ namespace OCAnalytics
             // Periodo
             // 
             this.Periodo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.Periodo.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.Periodo.DefaultCellStyle = dataGridViewCellStyle2;
             this.Periodo.HeaderText = "Periodo";
             this.Periodo.Name = "Periodo";
             this.Periodo.ReadOnly = true;
@@ -300,9 +300,9 @@ namespace OCAnalytics
             // HorasPlanificablesPeriodo
             // 
             this.HorasPlanificablesPeriodo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.HorasPlanificablesPeriodo.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.HorasPlanificablesPeriodo.DefaultCellStyle = dataGridViewCellStyle3;
             this.HorasPlanificablesPeriodo.HeaderText = "Horas Planificables Periodo";
             this.HorasPlanificablesPeriodo.Name = "HorasPlanificablesPeriodo";
             this.HorasPlanificablesPeriodo.ReadOnly = true;
@@ -312,9 +312,9 @@ namespace OCAnalytics
             // HorasPlanificadasPeriodo
             // 
             this.HorasPlanificadasPeriodo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.HorasPlanificadasPeriodo.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.HorasPlanificadasPeriodo.DefaultCellStyle = dataGridViewCellStyle4;
             this.HorasPlanificadasPeriodo.HeaderText = "Horas Planificadas Periodo";
             this.HorasPlanificadasPeriodo.Name = "HorasPlanificadasPeriodo";
             this.HorasPlanificadasPeriodo.ReadOnly = true;
@@ -324,9 +324,9 @@ namespace OCAnalytics
             // HorasRestantesPeriodo
             // 
             this.HorasRestantesPeriodo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.HorasRestantesPeriodo.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.HorasRestantesPeriodo.DefaultCellStyle = dataGridViewCellStyle5;
             this.HorasRestantesPeriodo.HeaderText = "Horas Restantes Periodo";
             this.HorasRestantesPeriodo.Name = "HorasRestantesPeriodo";
             this.HorasRestantesPeriodo.ReadOnly = true;
@@ -335,9 +335,9 @@ namespace OCAnalytics
             // HorasPlanificablesHoy
             // 
             this.HorasPlanificablesHoy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.HorasPlanificablesHoy.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.HorasPlanificablesHoy.DefaultCellStyle = dataGridViewCellStyle6;
             this.HorasPlanificablesHoy.HeaderText = "Horas Planificables Hoy";
             this.HorasPlanificablesHoy.Name = "HorasPlanificablesHoy";
             this.HorasPlanificablesHoy.ReadOnly = true;
@@ -346,9 +346,9 @@ namespace OCAnalytics
             // HorasPlanificadasHoy
             // 
             this.HorasPlanificadasHoy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.HorasPlanificadasHoy.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.HorasPlanificadasHoy.DefaultCellStyle = dataGridViewCellStyle7;
             this.HorasPlanificadasHoy.HeaderText = "Horas Planificadas Hoy";
             this.HorasPlanificadasHoy.Name = "HorasPlanificadasHoy";
             this.HorasPlanificadasHoy.ReadOnly = true;
@@ -357,9 +357,9 @@ namespace OCAnalytics
             // HorasRestantesHoy
             // 
             this.HorasRestantesHoy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.HorasRestantesHoy.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.HorasRestantesHoy.DefaultCellStyle = dataGridViewCellStyle8;
             this.HorasRestantesHoy.HeaderText = "Horas Restantes Hoy";
             this.HorasRestantesHoy.Name = "HorasRestantesHoy";
             this.HorasRestantesHoy.ReadOnly = true;
