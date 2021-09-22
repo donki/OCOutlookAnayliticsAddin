@@ -17,5 +17,8 @@
     <Setting Name="CategoriaFestivos" Type="System.String" Scope="User">
       <Value Profile="(Default)">Festivo</Value>
     </Setting>
+    <Setting Name="CategoriaNoComputable" Type="System.String" Scope="User">
+      <Value Profile="(Default)">No Computable</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -21,6 +21,7 @@ namespace OCAnalytics
             this.nudHorasLaborales.Value = Settings1.Default.HorasLaborales;
             this.nudHorasLaboralesPlanificadas.Value = Settings1.Default.HorasPlanificables;
             this.tbCategoriaFestivos.Text = Settings1.Default.CategoriaFestivos;
+            this.tbCategoriaNoComputable.Text = Settings1.Default.CategoriaNoComputable;           
 
 
         }
@@ -79,6 +80,8 @@ namespace OCAnalytics
                 MonthPerido.isMonthPeriod = true;
                 pSummary.ProjectSummaryMonths.Add(MonthPerido);
 
+                var Today = DateTime.Today;
+
                 foreach (Microsoft.Office.Interop.Outlook.AppointmentItem appt in rangeAppts)
                 {
 
@@ -86,6 +89,14 @@ namespace OCAnalytics
                     {
                         continue;
                     }
+                    if (appt.Categories != null)
+                    {
+                        if (appt.Categories.Contains(this.tbCategoriaNoComputable.Text))
+                        {
+                            continue;
+                        }
+                    }
+
                     var MonthName = appt.Start.ToString("MM/yyyy");
                     var Month = pSummary.ProjectSummaryMonths.Find((x) => x.MonthName.Equals(MonthName));
                     if (Month == null)
@@ -101,7 +112,17 @@ namespace OCAnalytics
                     Month.TotalHoursPlanned += (decimal)(appt.End - appt.Start).TotalHours;
                     if ((appt.Start >= this.dtInicioPeriodo.Value.Date) && (this.dtFinPeriodo.Value.Date >= appt.Start))
                     {
-                            MonthPerido.TotalHoursPlanned += (decimal)(appt.End - appt.Start).TotalHours;
+                        MonthPerido.TotalHoursPlanned += (decimal)(appt.End - appt.Start).TotalHours;
+
+                        if (appt.Start >= Today) 
+                        {
+                            MonthPerido.TotalHoursPlannedToday += (decimal)(appt.End - appt.Start).TotalHours;
+                        }
+                    }
+
+                    if ((appt.Start >= Today) && (Month.EndOfMonth >= appt.Start))
+                    {
+                        Month.TotalHoursPlannedToday += (decimal)(appt.End - appt.Start).TotalHours;
                     }
                 }
 
@@ -115,13 +136,27 @@ namespace OCAnalytics
 
                 foreach (SummaryMonth psm in pSummary.ProjectSummaryMonths)
                 {
-                    var getFreeDays = getFreeDaysBetweenDates(calFolder,psm.BeginOfMonth, psm.EndOfMonth) + countWeekEndDaysBetweenDates(psm.BeginOfMonth, psm.EndOfMonth);
-                    
+                    var getFreeDays = getFreeDaysBetweenDates(calFolder,psm.BeginOfMonth, psm.EndOfMonth) + countWeekEndDaysBetweenDates(psm.BeginOfMonth, psm.EndOfMonth);                  
+                    var getWorkDays = (int)(psm.EndOfMonth - psm.BeginOfMonth).TotalDays + 1;
 
-                    var getWorkDays = (int)(psm.EndOfMonth - psm.BeginOfMonth).TotalDays;
+                    var getFreeDaysToday = 0;
+                    var getWorkDaysToday = 0;
+
+
+                    if (psm.BeginOfMonth < Today)
+                    {
+                        getFreeDaysToday = getFreeDaysBetweenDates(calFolder, Today, psm.EndOfMonth) + countWeekEndDaysBetweenDates(Today, psm.EndOfMonth);
+                        getWorkDaysToday = (int)(psm.EndOfMonth - Today).TotalDays + 1;
+                    } else
+                    {
+                        getFreeDaysToday = getFreeDaysBetweenDates(calFolder, psm.BeginOfMonth, psm.EndOfMonth) + countWeekEndDaysBetweenDates(psm.BeginOfMonth, psm.EndOfMonth);
+                        getWorkDaysToday = (int)(psm.EndOfMonth - psm.BeginOfMonth).TotalDays + 1;
+                    }
 
 
                     psm.TotalWorkHours = (int)((Convert.ToInt32(getWorkDays) - getFreeDays) * nudHorasLaboralesPlanificadas.Value);
+
+                    psm.TotalWorkHoursToday = (int)((Convert.ToInt32(getWorkDaysToday) - getFreeDaysToday) * nudHorasLaboralesPlanificadas.Value);
 
                     if (psm.TotalHoursPlanned > 0)
                     {
@@ -138,10 +173,11 @@ namespace OCAnalytics
                     }
 
                     psm.TotalRemainHours = psm.TotalWorkHours - psm.TotalHoursPlanned;
-                    //psm.PerceNonPlannedHours = (int)((psm.TotalNonPlannedHours * 100) / ((getWorkDays) * (pSummary.DailyFullWorkHours - pSummary.DailyWorkHours)));
-                    var row = dgvResumen.Rows.Add(new object[] { psm.MonthName, psm.TotalWorkHours.ToString(format), psm.TotalHoursPlanned.ToString(format), psm.TotalRemainHours.ToString(format) });
+                    psm.TotalRemainHoursToday = psm.TotalWorkHoursToday - psm.TotalHoursPlannedToday;
+                    var row = dgvResumen.Rows.Add(new object[] { psm.MonthName, psm.TotalWorkHours.ToString(format), psm.TotalHoursPlanned.ToString(format), psm.TotalRemainHours.ToString(format), psm.TotalWorkHoursToday.ToString(format), psm.TotalHoursPlannedToday.ToString(format), psm.TotalRemainHoursToday.ToString(format) });
 
                     dgvResumen.Rows[row].Cells[3].Style.ForeColor = Color.White;
+                    dgvResumen.Rows[row].Cells[6].Style.ForeColor = Color.White;
 
                     if (psm.TotalRemainHours<0)
                     {
@@ -149,7 +185,17 @@ namespace OCAnalytics
 
                     } else
                     {
-                        dgvResumen.Rows[row].Cells[3].Style.BackColor = Color.Green;
+                        dgvResumen.Rows[row].Cells[3].Style.BackColor = Color.ForestGreen;
+                    }
+
+                    if (psm.TotalRemainHoursToday < 0)
+                    {
+                        dgvResumen.Rows[row].Cells[6].Style.BackColor = Color.Red;
+
+                    }
+                    else
+                    {
+                        dgvResumen.Rows[row].Cells[6].Style.BackColor = Color.Green;
                     }
 
                 }
@@ -201,6 +247,7 @@ namespace OCAnalytics
             Settings1.Default.HorasLaborales = this.nudHorasLaborales.Value;
             Settings1.Default.HorasPlanificables = this.nudHorasLaboralesPlanificadas.Value;
             Settings1.Default.CategoriaFestivos = this.tbCategoriaFestivos.Text;
+            Settings1.Default.CategoriaNoComputable = this.tbCategoriaNoComputable.Text;            
             Settings1.Default.Save();
 
         }
@@ -216,6 +263,11 @@ namespace OCAnalytics
         private void timer1_Tick(object sender, EventArgs e)
         {
             Refrescar();
+        }
+
+        private void dgvResumen_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -82,5 +82,17 @@ namespace OCAnalytics {
                 this["CategoriaFestivos"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("No Computable")]
+        public string CategoriaNoComputable {
+            get {
+                return ((string)(this["CategoriaNoComputable"]));
+            }
+            set {
+                this["CategoriaNoComputable"] = value;
+            }
+        }
     }
 }

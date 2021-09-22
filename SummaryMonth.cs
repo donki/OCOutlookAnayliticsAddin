@@ -11,6 +11,9 @@ namespace OCAnalytics
         public int TotalWorkHours;
         public decimal TotalHoursPlanned;
         public decimal TotalRemainHours;
+        public decimal TotalRemainHoursToday = 0;
+        public decimal TotalWorkHoursToday = 0;
+        public decimal TotalHoursPlannedToday = 0;        
         public int TotalTasks;
         public int TotalProgress;
         public int PerceProgress;

@@ -30,38 +30,45 @@ namespace OCAnalytics
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAnalisi = new System.Windows.Forms.TabControl();
             this.tpAnalisis = new System.Windows.Forms.TabPage();
             this.dgvResumen = new System.Windows.Forms.DataGridView();
             this.tpConfiguration = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtInicioPeriodo = new System.Windows.Forms.DateTimePicker();
-            this.dtFinPeriodo = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.nudHorasLaborales = new System.Windows.Forms.NumericUpDown();
+            this.tbCategoriaFestivos = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btRefresh = new System.Windows.Forms.Button();
             this.nudHorasLaboralesPlanificadas = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.btRefresh = new System.Windows.Forms.Button();
+            this.nudHorasLaborales = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtFinPeriodo = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtInicioPeriodo = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Periodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HorasPlanificablesPeriodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HorasPlanificadasPeriodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HorasRestantesPeriodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbCategoriaFestivos = new System.Windows.Forms.TextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.HorasPlanificablesHoy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HorasPlanificadasHoy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HorasRestantesHoy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbCategoriaNoComputable = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.tcAnalisi.SuspendLayout();
             this.tpAnalisis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResumen)).BeginInit();
             this.tpConfiguration.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHorasLaborales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHorasLaboralesPlanificadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHorasLaborales)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAnalisi
@@ -75,7 +82,7 @@ namespace OCAnalytics
             this.tcAnalisi.MinimumSize = new System.Drawing.Size(1021, 0);
             this.tcAnalisi.Name = "tcAnalisi";
             this.tcAnalisi.SelectedIndex = 0;
-            this.tcAnalisi.Size = new System.Drawing.Size(1021, 449);
+            this.tcAnalisi.Size = new System.Drawing.Size(1093, 449);
             this.tcAnalisi.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tcAnalisi.TabIndex = 1;
             // 
@@ -96,28 +103,23 @@ namespace OCAnalytics
             this.dgvResumen.AllowUserToAddRows = false;
             this.dgvResumen.AllowUserToDeleteRows = false;
             this.dgvResumen.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvResumen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvResumen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvResumen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResumen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Periodo,
             this.HorasPlanificablesPeriodo,
             this.HorasPlanificadasPeriodo,
-            this.HorasRestantesPeriodo});
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvResumen.DefaultCellStyle = dataGridViewCellStyle30;
+            this.HorasRestantesPeriodo,
+            this.HorasPlanificablesHoy,
+            this.HorasPlanificadasHoy,
+            this.HorasRestantesHoy});
             this.dgvResumen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvResumen.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvResumen.Location = new System.Drawing.Point(4, 5);
@@ -126,9 +128,12 @@ namespace OCAnalytics
             this.dgvResumen.ReadOnly = true;
             this.dgvResumen.Size = new System.Drawing.Size(1005, 406);
             this.dgvResumen.TabIndex = 4;
+            this.dgvResumen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResumen_CellContentClick);
             // 
             // tpConfiguration
             // 
+            this.tpConfiguration.Controls.Add(this.tbCategoriaNoComputable);
+            this.tpConfiguration.Controls.Add(this.label6);
             this.tpConfiguration.Controls.Add(this.tbCategoriaFestivos);
             this.tpConfiguration.Controls.Add(this.label5);
             this.tpConfiguration.Controls.Add(this.btRefresh);
@@ -144,29 +149,97 @@ namespace OCAnalytics
             this.tpConfiguration.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpConfiguration.Name = "tpConfiguration";
             this.tpConfiguration.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tpConfiguration.Size = new System.Drawing.Size(1013, 416);
+            this.tpConfiguration.Size = new System.Drawing.Size(1085, 416);
             this.tpConfiguration.TabIndex = 1;
             this.tpConfiguration.Text = "Configuración";
             this.tpConfiguration.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // tbCategoriaFestivos
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 37);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Inicio Periodo";
+            this.tbCategoriaFestivos.Location = new System.Drawing.Point(832, 39);
+            this.tbCategoriaFestivos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCategoriaFestivos.Name = "tbCategoriaFestivos";
+            this.tbCategoriaFestivos.Size = new System.Drawing.Size(215, 27);
+            this.tbCategoriaFestivos.TabIndex = 10;
             // 
-            // dtInicioPeriodo
+            // label5
             // 
-            this.dtInicioPeriodo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtInicioPeriodo.Location = new System.Drawing.Point(197, 37);
-            this.dtInicioPeriodo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dtInicioPeriodo.Name = "dtInicioPeriodo";
-            this.dtInicioPeriodo.Size = new System.Drawing.Size(140, 27);
-            this.dtInicioPeriodo.TabIndex = 1;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(640, 41);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 20);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Categoria Festivos";
+            // 
+            // btRefresh
+            // 
+            this.btRefresh.BackColor = System.Drawing.Color.White;
+            this.btRefresh.Image = global::OCAnalytics.Properties.Resources.refresh;
+            this.btRefresh.Location = new System.Drawing.Point(25, 106);
+            this.btRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btRefresh.Name = "btRefresh";
+            this.btRefresh.Size = new System.Drawing.Size(62, 53);
+            this.btRefresh.TabIndex = 8;
+            this.btRefresh.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btRefresh.UseVisualStyleBackColor = false;
+            this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
+            // 
+            // nudHorasLaboralesPlanificadas
+            // 
+            this.nudHorasLaboralesPlanificadas.DecimalPlaces = 2;
+            this.nudHorasLaboralesPlanificadas.Location = new System.Drawing.Point(527, 79);
+            this.nudHorasLaboralesPlanificadas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nudHorasLaboralesPlanificadas.Name = "nudHorasLaboralesPlanificadas";
+            this.nudHorasLaboralesPlanificadas.Size = new System.Drawing.Size(103, 27);
+            this.nudHorasLaboralesPlanificadas.TabIndex = 7;
+            this.nudHorasLaboralesPlanificadas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudHorasLaboralesPlanificadas.Value = new decimal(new int[] {
+            400,
+            0,
+            0,
+            131072});
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(309, 81);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(210, 20);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Horas laborables planificables";
+            // 
+            // nudHorasLaborales
+            // 
+            this.nudHorasLaborales.DecimalPlaces = 2;
+            this.nudHorasLaborales.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            131072});
+            this.nudHorasLaborales.Location = new System.Drawing.Point(198, 81);
+            this.nudHorasLaborales.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nudHorasLaborales.Name = "nudHorasLaborales";
+            this.nudHorasLaborales.Size = new System.Drawing.Size(103, 27);
+            this.nudHorasLaborales.TabIndex = 5;
+            this.nudHorasLaborales.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudHorasLaborales.UseWaitCursor = true;
+            this.nudHorasLaborales.Value = new decimal(new int[] {
+            640,
+            0,
+            0,
+            131072});
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(21, 81);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(122, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Horas laborables";
             // 
             // dtFinPeriodo
             // 
@@ -187,81 +260,37 @@ namespace OCAnalytics
             this.label2.TabIndex = 2;
             this.label2.Text = "Fin Periodo";
             // 
-            // label3
+            // dtInicioPeriodo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 112);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Horas laborables";
+            this.dtInicioPeriodo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtInicioPeriodo.Location = new System.Drawing.Point(197, 37);
+            this.dtInicioPeriodo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtInicioPeriodo.Name = "dtInicioPeriodo";
+            this.dtInicioPeriodo.Size = new System.Drawing.Size(140, 27);
+            this.dtInicioPeriodo.TabIndex = 1;
             // 
-            // nudHorasLaborales
+            // label1
             // 
-            this.nudHorasLaborales.DecimalPlaces = 2;
-            this.nudHorasLaborales.Increment = new decimal(new int[] {
-            10,
-            0,
-            0,
-            131072});
-            this.nudHorasLaborales.Location = new System.Drawing.Point(197, 112);
-            this.nudHorasLaborales.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.nudHorasLaborales.Name = "nudHorasLaborales";
-            this.nudHorasLaborales.Size = new System.Drawing.Size(103, 27);
-            this.nudHorasLaborales.TabIndex = 5;
-            this.nudHorasLaborales.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.nudHorasLaborales.UseWaitCursor = true;
-            this.nudHorasLaborales.Value = new decimal(new int[] {
-            640,
-            0,
-            0,
-            131072});
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 37);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Inicio Periodo";
             // 
-            // nudHorasLaboralesPlanificadas
+            // timer1
             // 
-            this.nudHorasLaboralesPlanificadas.DecimalPlaces = 2;
-            this.nudHorasLaboralesPlanificadas.Location = new System.Drawing.Point(526, 110);
-            this.nudHorasLaboralesPlanificadas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.nudHorasLaboralesPlanificadas.Name = "nudHorasLaboralesPlanificadas";
-            this.nudHorasLaboralesPlanificadas.Size = new System.Drawing.Size(103, 27);
-            this.nudHorasLaboralesPlanificadas.TabIndex = 7;
-            this.nudHorasLaboralesPlanificadas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.nudHorasLaboralesPlanificadas.Value = new decimal(new int[] {
-            400,
-            0,
-            0,
-            131072});
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(308, 112);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(210, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Horas laborables planificables";
-            // 
-            // btRefresh
-            // 
-            this.btRefresh.BackColor = System.Drawing.Color.White;
-            this.btRefresh.Image = global::OCAnalytics.Properties.Resources.refresh;
-            this.btRefresh.Location = new System.Drawing.Point(648, 37);
-            this.btRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btRefresh.Name = "btRefresh";
-            this.btRefresh.Size = new System.Drawing.Size(81, 74);
-            this.btRefresh.TabIndex = 8;
-            this.btRefresh.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btRefresh.UseVisualStyleBackColor = false;
-            this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Periodo
             // 
             this.Periodo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.Periodo.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.Periodo.DefaultCellStyle = dataGridViewCellStyle10;
             this.Periodo.HeaderText = "Periodo";
             this.Periodo.Name = "Periodo";
             this.Periodo.ReadOnly = true;
@@ -271,9 +300,9 @@ namespace OCAnalytics
             // HorasPlanificablesPeriodo
             // 
             this.HorasPlanificablesPeriodo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.HorasPlanificablesPeriodo.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.HorasPlanificablesPeriodo.DefaultCellStyle = dataGridViewCellStyle11;
             this.HorasPlanificablesPeriodo.HeaderText = "Horas Planificables Periodo";
             this.HorasPlanificablesPeriodo.Name = "HorasPlanificablesPeriodo";
             this.HorasPlanificablesPeriodo.ReadOnly = true;
@@ -283,9 +312,9 @@ namespace OCAnalytics
             // HorasPlanificadasPeriodo
             // 
             this.HorasPlanificadasPeriodo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.HorasPlanificadasPeriodo.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.HorasPlanificadasPeriodo.DefaultCellStyle = dataGridViewCellStyle12;
             this.HorasPlanificadasPeriodo.HeaderText = "Horas Planificadas Periodo";
             this.HorasPlanificadasPeriodo.Name = "HorasPlanificadasPeriodo";
             this.HorasPlanificadasPeriodo.ReadOnly = true;
@@ -295,37 +324,64 @@ namespace OCAnalytics
             // HorasRestantesPeriodo
             // 
             this.HorasRestantesPeriodo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.HorasRestantesPeriodo.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.HorasRestantesPeriodo.DefaultCellStyle = dataGridViewCellStyle13;
             this.HorasRestantesPeriodo.HeaderText = "Horas Restantes Periodo";
             this.HorasRestantesPeriodo.Name = "HorasRestantesPeriodo";
             this.HorasRestantesPeriodo.ReadOnly = true;
             this.HorasRestantesPeriodo.Width = 195;
             // 
-            // label5
+            // HorasPlanificablesHoy
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 177);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 20);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Categoria Festivos";
+            this.HorasPlanificablesHoy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.HorasPlanificablesHoy.DefaultCellStyle = dataGridViewCellStyle14;
+            this.HorasPlanificablesHoy.HeaderText = "Horas Planificables Hoy";
+            this.HorasPlanificablesHoy.Name = "HorasPlanificablesHoy";
+            this.HorasPlanificablesHoy.ReadOnly = true;
+            this.HorasPlanificablesHoy.Width = 191;
             // 
-            // tbCategoriaFestivos
+            // HorasPlanificadasHoy
             // 
-            this.tbCategoriaFestivos.Location = new System.Drawing.Point(203, 175);
-            this.tbCategoriaFestivos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbCategoriaFestivos.Name = "tbCategoriaFestivos";
-            this.tbCategoriaFestivos.Size = new System.Drawing.Size(215, 27);
-            this.tbCategoriaFestivos.TabIndex = 10;
+            this.HorasPlanificadasHoy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.HorasPlanificadasHoy.DefaultCellStyle = dataGridViewCellStyle15;
+            this.HorasPlanificadasHoy.HeaderText = "Horas Planificadas Hoy";
+            this.HorasPlanificadasHoy.Name = "HorasPlanificadasHoy";
+            this.HorasPlanificadasHoy.ReadOnly = true;
+            this.HorasPlanificadasHoy.Width = 187;
             // 
-            // timer1
+            // HorasRestantesHoy
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.HorasRestantesHoy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.HorasRestantesHoy.DefaultCellStyle = dataGridViewCellStyle16;
+            this.HorasRestantesHoy.HeaderText = "Horas Restantes Hoy";
+            this.HorasRestantesHoy.Name = "HorasRestantesHoy";
+            this.HorasRestantesHoy.ReadOnly = true;
+            this.HorasRestantesHoy.Width = 171;
+            // 
+            // tbCategoriaNoComputable
+            // 
+            this.tbCategoriaNoComputable.Location = new System.Drawing.Point(833, 80);
+            this.tbCategoriaNoComputable.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCategoriaNoComputable.Name = "tbCategoriaNoComputable";
+            this.tbCategoriaNoComputable.Size = new System.Drawing.Size(215, 27);
+            this.tbCategoriaNoComputable.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(641, 81);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(184, 20);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Categoria No Computable";
             // 
             // OCAnalyticsPanel
             // 
@@ -337,7 +393,7 @@ namespace OCAnalytics
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimumSize = new System.Drawing.Size(766, 0);
             this.Name = "OCAnalyticsPanel";
-            this.Size = new System.Drawing.Size(766, 449);
+            this.Size = new System.Drawing.Size(1093, 449);
             this.Click += new System.EventHandler(this.OCAnalyticsPanel_Click);
             this.Enter += new System.EventHandler(this.OCAnalyticsPanel_Enter);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OCAnalyticsPanel_MouseClick);
@@ -346,8 +402,8 @@ namespace OCAnalytics
             ((System.ComponentModel.ISupportInitialize)(this.dgvResumen)).EndInit();
             this.tpConfiguration.ResumeLayout(false);
             this.tpConfiguration.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHorasLaborales)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHorasLaboralesPlanificadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHorasLaborales)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -366,12 +422,17 @@ namespace OCAnalytics
         private System.Windows.Forms.NumericUpDown nudHorasLaborales;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btRefresh;
+        private System.Windows.Forms.TextBox tbCategoriaFestivos;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Periodo;
         private System.Windows.Forms.DataGridViewTextBoxColumn HorasPlanificablesPeriodo;
         private System.Windows.Forms.DataGridViewTextBoxColumn HorasPlanificadasPeriodo;
         private System.Windows.Forms.DataGridViewTextBoxColumn HorasRestantesPeriodo;
-        private System.Windows.Forms.TextBox tbCategoriaFestivos;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HorasPlanificablesHoy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HorasPlanificadasHoy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HorasRestantesHoy;
+        private System.Windows.Forms.TextBox tbCategoriaNoComputable;
+        private System.Windows.Forms.Label label6;
     }
 }
