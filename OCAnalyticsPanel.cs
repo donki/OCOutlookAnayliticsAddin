@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Outlook;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace OCAnalytics
 {
     public partial class OCAnalyticsPanel : UserControl
     {
+        private Microsoft.Office.Interop.Outlook.Folder calFolder;
         public OCAnalyticsPanel()
         {
             InitializeComponent();
@@ -21,15 +23,33 @@ namespace OCAnalytics
             this.nudHorasLaborales.Value = Settings1.Default.HorasLaborales;
             this.nudHorasLaboralesPlanificadas.Value = Settings1.Default.HorasPlanificables;
             this.tbCategoriaFestivos.Text = Settings1.Default.CategoriaFestivos;
-            this.tbCategoriaNoComputable.Text = Settings1.Default.CategoriaNoComputable;           
+            this.tbCategoriaNoComputable.Text = Settings1.Default.CategoriaNoComputable;
+            this.tbCategoriaNoPlaneadas.Text = Settings1.Default.CategoriaNoPlaneada;
 
-
+            calFolder =
+            Globals.ThisAddIn.Application.Session.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders.olFolderCalendar)
+              as Microsoft.Office.Interop.Outlook.Folder;
+            calFolder.Items.ItemAdd += ItemAddedEventHandler;
+            calFolder.Items.ItemChange += ItemAddedEventHandler;
+            calFolder.Items.ItemRemove += ItemRemoveEventHandler;
         }
 
-        private void OCAnalyticsPanel_Enter(object sender, EventArgs e)
+        private void ItemAddedEventHandler(object Item)
         {
             Refrescar();
         }
+
+        private void ItemRemoveEventHandler()
+        {
+            Refrescar();
+        }
+
+
+
+
+        private void OCAnalyticsPanel_Enter(object sender, EventArgs e)
+        {
+                 }
 
         private Microsoft.Office.Interop.Outlook.Items GetAppointmentsInRange(Microsoft.Office.Interop.Outlook.Folder folder, DateTime startTime, DateTime endTime)
         {
@@ -58,9 +78,7 @@ namespace OCAnalytics
 
             var pSummary = new Summary();
 
-            Microsoft.Office.Interop.Outlook.Folder calFolder =
-                Globals.ThisAddIn.Application.Session.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders.olFolderCalendar)
-                as Microsoft.Office.Interop.Outlook.Folder;
+
 
 
             DateTime start = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
@@ -108,21 +126,35 @@ namespace OCAnalytics
                         Month.EndOfMonth = new DateTime(Convert.ToDateTime(appt.Start).Date.Year, Convert.ToDateTime(appt.Start).Date.Month, 1).AddMonths(1).AddDays(-1);
                     }
 
-                    Month.TotalTasks++;
-                    Month.TotalHoursPlanned += (decimal)(appt.End - appt.Start).TotalHours;
-                    if ((appt.Start >= this.dtInicioPeriodo.Value.Date) && (this.dtFinPeriodo.Value.Date >= appt.Start))
+                    if (appt.Categories != null)
                     {
-                        MonthPerido.TotalHoursPlanned += (decimal)(appt.End - appt.Start).TotalHours;
 
-                        if (appt.Start >= Today) 
-                        {
-                            MonthPerido.TotalHoursPlannedToday += (decimal)(appt.End - appt.Start).TotalHours;
+                        if (appt.Categories.Contains(this.tbCategoriaNoPlaneadas.Text)){                       
+                            
+                            Month.TotalNonPlannedHours += (decimal)(appt.End - appt.Start).TotalHours;
+                            if ((appt.Start >= this.dtInicioPeriodo.Value.Date) && (this.dtFinPeriodo.Value.Date >= appt.Start))
+                            {
+                              MonthPerido.TotalNonPlannedHours += (decimal)(appt.End - appt.Start).TotalHours;
+                            }
                         }
-                    }
-
-                    if ((appt.Start >= Today) && (Month.EndOfMonth >= appt.Start))
+                    } else
                     {
-                        Month.TotalHoursPlannedToday += (decimal)(appt.End - appt.Start).TotalHours;
+                        Month.TotalTasks++;
+                        Month.TotalHoursPlanned += (decimal)(appt.End - appt.Start).TotalHours;
+                        if ((appt.Start >= this.dtInicioPeriodo.Value.Date) && (this.dtFinPeriodo.Value.Date >= appt.Start))
+                        {
+                            MonthPerido.TotalHoursPlanned += (decimal)(appt.End - appt.Start).TotalHours;
+
+                            if (appt.Start >= Today)
+                            {
+                                MonthPerido.TotalHoursPlannedToday += (decimal)(appt.End - appt.Start).TotalHours;
+                            }
+                        }
+
+                        if ((appt.Start >= Today) && (Month.EndOfMonth >= appt.Start))
+                        {
+                            Month.TotalHoursPlannedToday += (decimal)(appt.End - appt.Start).TotalHours;
+                        }
                     }
                 }
 
@@ -180,7 +212,9 @@ namespace OCAnalytics
                         psm.TotalRemainHours.ToString(format), 
                         psm.TotalWorkHoursToday.ToString(format), 
                         psm.TotalHoursPlannedToday.ToString(format), 
-                        psm.TotalRemainHoursToday.ToString(format) });
+                        psm.TotalRemainHoursToday.ToString(format),
+                        psm.TotalNonPlannedHours.ToString(format)
+                    });
 
                     dgvResumen.Rows[row].Cells[3].Style.ForeColor = Color.White;
                     dgvResumen.Rows[row].Cells[6].Style.ForeColor = Color.White;

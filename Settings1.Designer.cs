@@ -94,5 +94,17 @@ namespace OCAnalytics {
                 this["CategoriaNoComputable"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("No Planeada")]
+        public string CategoriaNoPlaneada {
+            get {
+                return ((string)(this["CategoriaNoPlaneada"]));
+            }
+            set {
+                this["CategoriaNoPlaneada"] = value;
+            }
+        }
     }
 }

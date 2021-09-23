@@ -20,5 +20,8 @@
     <Setting Name="CategoriaNoComputable" Type="System.String" Scope="User">
       <Value Profile="(Default)">No Computable</Value>
     </Setting>
+    <Setting Name="CategoriaNoPlaneada" Type="System.String" Scope="User">
+      <Value Profile="(Default)">No Planeada</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
