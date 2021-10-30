@@ -74,7 +74,7 @@ namespace OCAnalytics
 
 
             DateTime start = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            DateTime end = new DateTime(DateTime.Now.Year, 12, 31);
+            DateTime end = new DateTime(start.Year, 12, 31);
 
             Microsoft.Office.Interop.Outlook.Items rangeAppts = GetAppointmentsInRange(calFolder, start, end);
 
